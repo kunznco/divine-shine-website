@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Divine Shine brand palette — blue ("Divine") + gold ("Shine"), pulled
+     from the logo wordmark. Same token names as the source template so all
+     bg-navy / bg-sky / text-sky-text / bg-gold utilities remap cleanly. */
+  --color-navy: #134E7E;        /* primary deep blue */
+  --color-navy-light: #1B6AA8;
+  --color-navy-dark: #0D3A60;
+  --color-sky: #3DA8E0;         /* brand accent — backgrounds, buttons, borders, hover states */
+  --color-sky-text: #1C7AB0;    /* darker variant for TEXT uses — meets WCAG AA 4.5:1 on white */
+  --color-sky-light: #D7EEF9;   /* pale tint for backgrounds */
+  --color-dark: #08111B;
+  --color-dark-muted: #51607A;
+  --color-gold: #F5C518;        /* "Shine" gold accent */
+  --color-background: #ffffff;
+  --color-foreground: #08121d;
+  /* Ash neutral palette — subtle surfaces, pill borders. */
+  --color-ash-50:  #fafbfc;
+  --color-ash-100: #f4f5f7;
+  --color-ash-200: #e7e9ed;
+  --color-ash-300: #d4d7de;
+  --color-ash-400: #a1a6b0;
+  --color-ash-500: #6b7280;
+  --color-ash-600: #4b5563;
+  --color-ash-700: #374151;
+  --color-ash-800: #1f2937;
+  --color-ash-900: #0f172a;
+
+  /* All brand font tokens resolve to Poppins (single typeface). */
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-poppins);
+  --font-nav: var(--font-poppins);
+
+  /* Primary = brand blue. Full rgb() so Tailwind v4 auto-generates
+     bg-primary / text-primary utilities; matching *-rgb triplets let
+     callers compose opacity (e.g. bg-primary/40). */
+  --color-primary:          rgb(19 78 126);
+  --color-primaryContrast:  rgb(255 255 255);
+  --color-primaryDarker:    rgb(13 58 96);
+  --color-primaryLighter:   rgb(27 106 168);
+
+  --color-secondary:         rgb(215 238 249);
+  --color-secondaryContrast: rgb(28 122 176);
+  --color-secondaryDarker:   rgb(149 203 239);
+  --color-secondaryLighter:  rgb(255 255 255);
+
+  --color-derivative-50:  rgb(244 248 253);
+  --color-derivative-100: rgb(210 222 235);
+  --color-derivative-200: rgb(205 216 228);
+  --color-derivative-400: rgb(81 96 122);
+  --color-derivative-500: rgb(19 78 126);
+  --color-derivative-700: rgb(30 35 43);
+  --color-derivative-900: rgb(8 17 27);
+}
+
+@theme {
+  --font-pairing-primary:   var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-pairing-secondary: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .rounded-dynamic { border-radius: 28px; }
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-from, transparent), var(--tw-gradient-to, transparent));
+  }
+}
+
+@theme {
+  --radius-dynamic: 28px;
+}
+
+:root {
+  --primary-color:        19, 78, 126;
+  --primary-contrast:     255, 255, 255;
+  --primary-darker:       13, 58, 96;
+  --primary-lighter:      27, 106, 168;
+  --primary-foreground:   var(--primary-lighter);
+  --secondary-color:      215, 238, 249;
+  --secondary-contrast:   28, 122, 176;
+  --secondary-darker:     149, 203, 239;
+  --secondary-lighter:    255, 255, 255;
+  --derivative-color-50:  244, 248, 253;
+  --derivative-color-100: 210, 222, 235;
+  --derivative-color-200: 205, 216, 228;
+  --derivative-color-400: 81, 96, 122;
+  --derivative-color-500: 19, 78, 126;
+  --derivative-color-700: 30, 35, 43;
+  --derivative-color-900: 8, 17, 27;
+  --roundedness: 28px;
+  --tw-text-opacity: 1;
+}
+
+/* Eyebrow/overline label used above section subtitles. */
+.section-intro {
+  display: block;
+  font-family: var(--font-pairing-secondary), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  line-height: 1.25rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: rgba(var(--derivative-color-400), var(--tw-text-opacity, 1));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Glassmorphism utility — navbar capsule background. Heavy blur, almost no
+   tint; what reads as frosted glass is the blur kernel scattering whatever
+   sits behind the chip (hero photo, content sections), not a darkening layer. */
+.glass {
+  background: rgba(0, 0, 0, 0.10);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: none;
+}
+
+.glass-scrolled {
+  background: rgba(0, 0, 0, 0.10);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav-link text-shadow helper — keeps white nav text legible over the
+   translucent glass capsule regardless of the background behind it. */
+.nav-link-shadow {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero overlay — brand-blue gradient scrim over hero photos. */
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(19, 78, 126, 0.5), rgba(19, 78, 126, 0.7));
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #134E7E;
+  border-radius: 4px;
+}
+
+/* ===========================================================================
+   Section header system — eyebrow + heading + subtitle, composable per section.
+   =========================================================================== */
+.section-eyebrow {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-sky-text);
+  letter-spacing: 0.3em;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.section-heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: #134E7E;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin: 0 0 24px 0;
+}
+@media (min-width: 768px) {
+  .section-heading { font-size: 40px; }
+}
+@media (min-width: 1024px) {
+  .section-heading { font-size: 56px; }
+}
+
+.section-subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--color-sky-text);
+  margin-bottom: 32px;
+}
+
+/* Frosted floating-card pattern (pricing tiles, bio cards). Border space is
+   pre-reserved so the solid-on-hover border causes no layout shift. */
+.card-frosted {
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--roundedness, 28px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+.card-frosted:hover {
+  transform: translateY(-8px);
+  border-color: #3DA8E0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .card-frosted,
+  .card-frosted:hover {
+    transition: none;
+    transform: none;
+  }
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+}
+
+/* iOS Safari bg-fixed jank fix — degrade parallax to a static cover image. */
+@supports (-webkit-touch-callout: none) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+}
