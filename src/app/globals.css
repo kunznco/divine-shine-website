@@ -236,3 +236,12 @@ a, button {
     background-attachment: scroll !important;
   }
 }
+
+/* Jobber embed — make the work-request form fill its wrapper instead of
+   stopping at Jobber's ~760px default width cap. */
+.grab-jobber-embed .jobber-inline-work-request,
+.grab-jobber-embed iframe.jobber-work-request {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+}
