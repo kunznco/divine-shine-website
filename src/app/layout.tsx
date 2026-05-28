@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Commercial & residential window cleaning and pressure washing across Redding and Shasta County.",
     images: [
       {
-        url: "/images/divine-shine/hero.webp",
+        url: "/images/divine-shine/og-share.webp",
         width: 1200,
         height: 630,
         alt: "Divine Shine — window cleaning and pressure washing in Redding",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Window Cleaning & Pressure Washing in Redding | Divine Shine",
     description:
       "Commercial & residential window cleaning and pressure washing across Redding and Shasta County.",
-    images: ["/images/divine-shine/hero.webp"],
+    images: ["/images/divine-shine/og-share.webp"],
   },
   robots: {
     index: true,

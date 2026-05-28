@@ -1143,7 +1143,7 @@ export function CcSingleTestimonial({ text, author, rating = 5 }: CcSingleTestim
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt=""
-        src="/images/divine-shine/hero.webp"
+        src="/images/divine-shine/family.webp"
         loading="lazy"
         aria-hidden
         className="absolute inset-0 z-0 h-full w-full object-cover opacity-30"

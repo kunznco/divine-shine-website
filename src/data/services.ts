@@ -294,7 +294,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Powerful pressure washing and soft washing for driveways, patios, walkways, pool decks, and hardscaping across Redding and Shasta County.",
     icon: "pressure",
-    image: "/images/divine-shine/pressure-washing.jpg",
+    image: "/images/divine-shine/pressure-washing.webp",
     seoTitle: "Pressure Washing in Redding & Shasta County | Divine Shine",
     seoDescription:
       "Professional pressure washing and soft washing for concrete, pavers, brick, and pool decks in Redding, Anderson, and Red Bluff. Safe, thorough, insured.",
@@ -405,7 +405,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Professional solar panel cleaning that restores energy output and protects your investment. Serving Redding and Shasta County homes and businesses.",
     icon: "solar",
-    image: "/images/divine-shine/solar-panel-cleaning.jpg",
+    image: "/images/divine-shine/solar-panel-cleaning.webp",
     seoTitle: "Solar Panel Cleaning in Redding | Boost Solar Output | Divine Shine",
     seoDescription:
       "Restore lost solar output with professional panel cleaning in Redding and Shasta County. Purified-water system, safe for your panels, fully insured.",
@@ -522,7 +522,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Complete exterior house washing that removes dirt, mildew, cobwebs, and oxidation from stucco and siding. Serving Redding and Shasta County.",
     icon: "house",
-    image: "/images/divine-shine/house-washing.jpg",
+    image: "/images/divine-shine/house-washing.webp",
     seoTitle: "House Washing in Redding & Shasta County | Divine Shine",
     seoDescription:
       "Professional exterior house washing in Redding and the North State. Gentle soft washing for stucco and siding, with eaves, trim, and screens included.",
@@ -626,7 +626,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Gentle, low-pressure roof washing that removes algae, moss, and stains without damaging shingles or tiles. Serving Redding and Shasta County.",
     icon: "roof",
-    image: "/images/divine-shine/roof-washing.jpg",
+    image: "/images/divine-shine/roof-washing.webp",
     seoTitle: "Roof Washing in Redding | Safe Soft-Wash Algae Removal | Divine Shine",
     seoDescription:
       "Professional soft-wash roof washing for shingle and tile roofs in Redding and the North State. Remove algae, moss, and stains without damage. Free estimate.",
