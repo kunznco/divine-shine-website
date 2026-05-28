@@ -13,6 +13,7 @@ import {
 } from "@/components/public/cc/Sections";
 import { CcHowItWorks } from "@/components/public/cc/HowItWorks";
 import { CcGoogleReviewsSlider } from "@/components/public/cc/GoogleReviewsSlider";
+import { ClientLogos } from "@/components/ClientLogos";
 
 /**
  * Homepage — production-faithful Cc* section flow:
@@ -54,6 +55,8 @@ export default async function HomePage() {
         reviewsLabel={reviewsLabel}
         reviewsHref={GOOGLE_REVIEWS_URL}
       />
+
+      <ClientLogos />
 
       <CcAreaServicesGrid
         cityName="Redding"
