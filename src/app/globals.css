@@ -1,20 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Divine Shine brand palette — blue ("Divine") + gold ("Shine"), pulled
-     from the logo wordmark. Same token names as the source template so all
-     bg-navy / bg-sky / text-sky-text / bg-gold utilities remap cleanly. */
-  --color-navy: #134E7E;        /* primary deep blue */
-  --color-navy-light: #1B6AA8;
-  --color-navy-dark: #0D3A60;
-  --color-sky: #3DA8E0;         /* brand accent — backgrounds, buttons, borders, hover states */
-  --color-sky-text: #1C7AB0;    /* darker variant for TEXT uses — meets WCAG AA 4.5:1 on white */
-  --color-sky-light: #D7EEF9;   /* pale tint for backgrounds */
+  /* Divine Shine official brand palette — cyan + yellow.
+     Source: BRAND-GUIDE.md (sampled from the logo wordmark).
+     - "Divine" cyan #33C4EA → primary brand
+     - "Shine" yellow #FFE500 → accent for CTAs / highlights
+     Token NAMES (navy/sky/gold) are kept so the existing utility classes
+     across the codebase remap cleanly. Token VALUES now hold the official
+     brand colors. */
+  --color-navy: #0B4A60;        /* deep cyan-blue — dark sections, primary buttons */
+  --color-navy-light: #156A85;
+  --color-navy-dark: #073A4D;
+  --color-sky: #33C4EA;         /* "Divine" brand cyan — primary brand color */
+  --color-sky-text: #097AA4;    /* darker cyan — AA-compliant text on white (4.5:1+) */
+  --color-sky-light: #D6F3FB;   /* pale cyan tint for backgrounds */
   --color-dark: #08111B;
   --color-dark-muted: #51607A;
-  --color-gold: #F5C518;        /* "Shine" gold accent */
+  --color-gold: #FFE500;        /* "Shine" brand yellow — accent / CTA highlight */
   --color-background: #ffffff;
-  --color-foreground: #08121d;
+  --color-foreground: #0A0A0A;  /* near-black for body text per brand guide */
+
   /* Ash neutral palette — subtle surfaces, pill borders. */
   --color-ash-50:  #fafbfc;
   --color-ash-100: #f4f5f7;
@@ -32,26 +37,27 @@
   --font-body: var(--font-poppins);
   --font-nav: var(--font-poppins);
 
-  /* Primary = brand blue. Full rgb() so Tailwind v4 auto-generates
-     bg-primary / text-primary utilities; matching *-rgb triplets let
-     callers compose opacity (e.g. bg-primary/40). */
-  --color-primary:          rgb(19 78 126);
+  /* Primary = deep cyan-blue (the "dark" brand shade for solid sections).
+     Full rgb() so Tailwind v4 auto-generates bg-primary / text-primary
+     utilities; opacity composes via bg-primary/40 etc. */
+  --color-primary:          rgb(11 74 96);
   --color-primaryContrast:  rgb(255 255 255);
-  --color-primaryDarker:    rgb(13 58 96);
-  --color-primaryLighter:   rgb(27 106 168);
+  --color-primaryDarker:    rgb(7 58 77);
+  --color-primaryLighter:   rgb(21 106 133);
 
-  --color-secondary:         rgb(215 238 249);
-  --color-secondaryContrast: rgb(28 122 176);
-  --color-secondaryDarker:   rgb(149 203 239);
+  /* Secondary = bright cyan (the interactive brand color). */
+  --color-secondary:         rgb(214 243 251);
+  --color-secondaryContrast: rgb(9 122 164);
+  --color-secondaryDarker:   rgb(51 196 234);
   --color-secondaryLighter:  rgb(255 255 255);
 
-  --color-derivative-50:  rgb(244 248 253);
-  --color-derivative-100: rgb(210 222 235);
-  --color-derivative-200: rgb(205 216 228);
-  --color-derivative-400: rgb(81 96 122);
-  --color-derivative-500: rgb(19 78 126);
-  --color-derivative-700: rgb(30 35 43);
-  --color-derivative-900: rgb(8 17 27);
+  --color-derivative-50:  rgb(244 251 253);
+  --color-derivative-100: rgb(210 230 235);
+  --color-derivative-200: rgb(205 226 233);
+  --color-derivative-400: rgb(75 95 110);
+  --color-derivative-500: rgb(11 74 96);
+  --color-derivative-700: rgb(25 35 43);
+  --color-derivative-900: rgb(8 14 19);
 }
 
 @theme {
@@ -71,22 +77,22 @@
 }
 
 :root {
-  --primary-color:        19, 78, 126;
+  --primary-color:        11, 74, 96;
   --primary-contrast:     255, 255, 255;
-  --primary-darker:       13, 58, 96;
-  --primary-lighter:      27, 106, 168;
+  --primary-darker:       7, 58, 77;
+  --primary-lighter:      21, 106, 133;
   --primary-foreground:   var(--primary-lighter);
-  --secondary-color:      215, 238, 249;
-  --secondary-contrast:   28, 122, 176;
-  --secondary-darker:     149, 203, 239;
+  --secondary-color:      214, 243, 251;
+  --secondary-contrast:   9, 122, 164;
+  --secondary-darker:     51, 196, 234;
   --secondary-lighter:    255, 255, 255;
-  --derivative-color-50:  244, 248, 253;
-  --derivative-color-100: 210, 222, 235;
-  --derivative-color-200: 205, 216, 228;
-  --derivative-color-400: 81, 96, 122;
-  --derivative-color-500: 19, 78, 126;
-  --derivative-color-700: 30, 35, 43;
-  --derivative-color-900: 8, 17, 27;
+  --derivative-color-50:  244, 251, 253;
+  --derivative-color-100: 210, 230, 235;
+  --derivative-color-200: 205, 226, 233;
+  --derivative-color-400: 75, 95, 110;
+  --derivative-color-500: 11, 74, 96;
+  --derivative-color-700: 25, 35, 43;
+  --derivative-color-900: 8, 14, 19;
   --roundedness: 28px;
   --tw-text-opacity: 1;
 }
@@ -135,36 +141,26 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Nav-link text-shadow helper — keeps white nav text legible over the
-   translucent glass capsule regardless of the background behind it. */
 .nav-link-shadow {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Hero overlay — brand-blue gradient scrim over hero photos. */
+/* Hero overlay — deep-cyan gradient scrim over hero photos. */
 .hero-overlay {
-  background: linear-gradient(to bottom, rgba(19, 78, 126, 0.5), rgba(19, 78, 126, 0.7));
+  background: linear-gradient(to bottom, rgba(11, 74, 96, 0.5), rgba(11, 74, 96, 0.7));
 }
 
-/* Smooth transitions for interactive elements */
 a, button {
   transition: all 0.2s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #134E7E;
-  border-radius: 4px;
-}
+/* Custom scrollbar — deep cyan thumb. */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #0B4A60; border-radius: 4px; }
 
 /* ===========================================================================
-   Section header system — eyebrow + heading + subtitle, composable per section.
+   Section header system — eyebrow + heading + subtitle.
    =========================================================================== */
 .section-eyebrow {
   display: block;
@@ -179,7 +175,7 @@ a, button {
 .section-heading {
   font-size: 32px;
   font-weight: 800;
-  color: #134E7E;
+  color: #0B4A60;
   line-height: 1.05;
   letter-spacing: -0.5px;
   margin: 0 0 24px 0;
@@ -198,8 +194,7 @@ a, button {
   margin-bottom: 32px;
 }
 
-/* Frosted floating-card pattern (pricing tiles, bio cards). Border space is
-   pre-reserved so the solid-on-hover border causes no layout shift. */
+/* Frosted floating-card pattern. */
 .card-frosted {
   background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(20px);
@@ -212,36 +207,36 @@ a, button {
 }
 .card-frosted:hover {
   transform: translateY(-8px);
-  border-color: #3DA8E0;
+  border-color: #33C4EA;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.95);
 }
 
-/* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
   .card-frosted,
-  .card-frosted:hover {
-    transition: none;
-    transform: none;
-  }
-  *::before,
-  *::after {
-    animation: none !important;
-  }
+  .card-frosted:hover { transition: none; transform: none; }
+  *::before, *::after { animation: none !important; }
 }
 
-/* iOS Safari bg-fixed jank fix — degrade parallax to a static cover image. */
 @supports (-webkit-touch-callout: none) {
-  .bg-fixed {
-    background-attachment: scroll !important;
-  }
+  .bg-fixed { background-attachment: scroll !important; }
 }
 
-/* Jobber embed — make the work-request form fill its wrapper instead of
-   stopping at Jobber's ~760px default width cap. */
+/* Jobber embed — make the work-request form fill its wrapper. */
 .grab-jobber-embed .jobber-inline-work-request,
 .grab-jobber-embed iframe.jobber-work-request {
   width: 100% !important;
   max-width: 100% !important;
   min-width: 100% !important;
+}
+
+/* ===========================================================================
+   "Trusted by" client-logos strip — desaturated mark that pops cyan on hover.
+   =========================================================================== */
+.client-logo {
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 0.2s ease;
+}
+.client-logo:hover {
+  filter: grayscale(0%) opacity(1);
 }

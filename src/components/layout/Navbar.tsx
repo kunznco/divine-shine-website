@@ -135,14 +135,14 @@ export function Navbar() {
                 nav-link pills. */}
             <Link
               href="/"
-              className="flex-shrink-0 bg-white/90 rounded-2xl px-3 py-1.5 shadow-sm"
+              className="flex-shrink-0"
               aria-label="Divine Shine — home"
             >
               <Image
-                src="/images/divine-shine-logo.png"
+                src="/images/divine-shine-logo-white.png"
                 alt="Divine Shine"
-                width={150}
-                height={66}
+                width={180}
+                height={59}
                 priority
                 className="h-10 sm:h-12 w-auto"
               />

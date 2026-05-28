@@ -21,16 +21,13 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Brand + social icons */}
           <div className="lg:col-span-4">
-            <Link
-              href="/"
-              className="inline-block bg-white rounded-2xl px-4 py-3 shadow-sm"
-            >
+            <Link href="/" className="inline-block">
               <Image
-                src="/images/divine-shine-logo.png"
+                src="/images/divine-shine-logo-white.png"
                 alt="Divine Shine"
-                width={200}
-                height={88}
-                className="h-16 sm:h-20 w-auto"
+                width={240}
+                height={79}
+                className="h-14 sm:h-16 w-auto opacity-95"
               />
             </Link>
             <p className="mt-5 text-sm text-white/70 leading-relaxed max-w-sm">
