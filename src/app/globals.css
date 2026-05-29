@@ -14,6 +14,7 @@
   --color-sky: #33C4EA;         /* "Divine" brand cyan — primary brand color */
   --color-sky-text: #097AA4;    /* darker cyan — AA-compliant text on white (4.5:1+) */
   --color-sky-light: #D6F3FB;   /* pale cyan tint for backgrounds */
+  --color-sky-bright: #4DCBEC;  /* lightened cyan — AA-compliant label text on dark navy (4.5:1+) */
   --color-dark: #08111B;
   --color-dark-muted: #51607A;
   --color-gold: #FFE500;        /* "Shine" brand yellow — accent / CTA highlight */

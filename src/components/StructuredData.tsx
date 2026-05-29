@@ -1,5 +1,6 @@
-import { PHONE_DISPLAY, EMAIL } from "@techforthetrades/shared/constants";
+import { PHONE_DISPLAY, EMAIL, SOCIAL_LINKS } from "@techforthetrades/shared/constants";
 import { getGoogleRating } from "@techforthetrades/shared/google/places";
+import { SERVICE_AREA_DATA } from "@/data/service-areas";
 
 const SITE_URL = "https://www.divine-shine.com";
 
@@ -41,14 +42,14 @@ export async function LocalBusinessSchema() {
       reviewCount: google.count,
       bestRating: 5,
     },
-    areaServed: [
-      { "@type": "City", name: "Redding" },
-      { "@type": "City", name: "Anderson" },
-      { "@type": "City", name: "Red Bluff" },
-      { "@type": "City", name: "Cottonwood" },
-      { "@type": "City", name: "Palo Cedro" },
-      { "@type": "City", name: "Shasta Lake" },
-    ],
+    // Every city with a dedicated service-area page — derived from
+    // SERVICE_AREA_DATA so schema, sitemap, and pages never drift apart.
+    areaServed: SERVICE_AREA_DATA.map((area) => ({
+      "@type": "City",
+      name: area.city,
+    })),
+    // Official social profiles that help Google disambiguate the entity.
+    sameAs: SOCIAL_LINKS.map((social) => social.href),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Cleaning Services",
@@ -144,10 +145,10 @@ export function ServiceSchema({
       url: SITE_URL,
       telephone: PHONE_DISPLAY,
     },
-    areaServed: {
+    areaServed: SERVICE_AREA_DATA.map((area) => ({
       "@type": "City",
-      name: "Redding",
-    },
+      name: area.city,
+    })),
   };
   return (
     <script
@@ -187,10 +188,10 @@ export function BlogPostingSchema({
     description,
     datePublished,
     dateModified: dateModified || datePublished,
-    author: { "@type": "Organization", name: "Coastal Clarity" },
+    author: { "@type": "Organization", name: "Divine Shine" },
     publisher: {
       "@type": "Organization",
-      name: "Coastal Clarity",
+      name: "Divine Shine",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/images/divine-shine-logo.png`,

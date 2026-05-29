@@ -81,7 +81,11 @@ export function CcHowItWorks() {
             heading colors are lightened for legibility on the dark
             navy background. */}
         <div className="text-center mb-12 sm:mb-16">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-sky mb-4">
+          {/* text-sky-bright, not text-sky: brand cyan #33C4EA on this
+              section's composited navy (#2d4a69) is only 4.45:1 — just shy of
+              AA. The lightened cyan clears 4.5:1 without touching the global
+              brand token. */}
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-sky-bright mb-4">
             How It Works
           </p>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
