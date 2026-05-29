@@ -1,4 +1,4 @@
-import { PHONE_DISPLAY, EMAIL, SOCIAL_LINKS } from "@techforthetrades/shared/constants";
+import { PHONE_DISPLAY, EMAIL, SAME_AS_PROFILES } from "@techforthetrades/shared/constants";
 import { getGoogleRating } from "@techforthetrades/shared/google/places";
 import { SERVICE_AREA_DATA } from "@/data/service-areas";
 
@@ -48,8 +48,9 @@ export async function LocalBusinessSchema() {
       "@type": "City",
       name: area.city,
     })),
-    // Official social profiles that help Google disambiguate the entity.
-    sameAs: SOCIAL_LINKS.map((social) => social.href),
+    // Social channels + Google/Yelp listings that help Google disambiguate
+    // the entity. Single source of truth lives in shared constants.
+    sameAs: SAME_AS_PROFILES,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Cleaning Services",

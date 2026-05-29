@@ -72,3 +72,20 @@ export const SOCIAL_LINKS = [
   { name: "Facebook", href: "https://facebook.com/divineshineredding/", icon: "facebook" },
   { name: "Instagram", href: "https://instagram.com/divineshineredding/", icon: "instagram" },
 ] as const;
+
+// Review/listing profiles — not "social", but authoritative entity references.
+// The Google URL is built from the business's Place ID (the same one that
+// drives the live 232-review count), so it stays canonical and stable instead
+// of a share-link redirect.
+export const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps/place/?q=place_id:ChIJu0aLGqEysaQRPkKdQ2gvRcc";
+export const YELP_URL = "https://www.yelp.com/biz/divine-shine-redding";
+
+// Every authoritative profile for schema.org LocalBusiness `sameAs`: social
+// channels first, then review/listing profiles. Helps Google disambiguate the
+// entity behind the brand search box.
+export const SAME_AS_PROFILES: readonly string[] = [
+  ...SOCIAL_LINKS.map((s) => s.href),
+  GOOGLE_BUSINESS_URL,
+  YELP_URL,
+];
