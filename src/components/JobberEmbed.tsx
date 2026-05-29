@@ -4,8 +4,13 @@ import { useEffect, useRef } from "react";
 
 /** Divine Shine's Jobber work-request form identifiers. */
 const CLIENTHUB_ID = "c0284d7c-e456-404b-84fd-7956ca714adc-425654";
+// `utm_source=Website` makes Jobber record "Website" as the lead source for
+// every submission from this embed (Jobber maps utm_source -> lead source).
+// The embed snippet seeds its params from this URL, then appends any UTM tags
+// present on the visitor's landing URL — so a real campaign link (e.g.
+// ?utm_source=facebook) still overrides this default.
 const FORM_URL =
-  "https://clienthub.getjobber.com/client_hubs/c0284d7c-e456-404b-84fd-7956ca714adc/public/work_request/embedded_work_request_form?form_id=425654";
+  "https://clienthub.getjobber.com/client_hubs/c0284d7c-e456-404b-84fd-7956ca714adc/public/work_request/embedded_work_request_form?form_id=425654&utm_source=Website";
 const CSS_URL =
   "https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";
 const SNIPPET_URL =
