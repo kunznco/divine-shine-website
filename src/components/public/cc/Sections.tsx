@@ -1143,7 +1143,7 @@ export function CcSingleTestimonial({ text, author, rating = 5 }: CcSingleTestim
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt=""
-        src="/images/divine-shine/family.webp"
+        src="/images/divine-shine/house-washing.webp"
         loading="lazy"
         aria-hidden
         className="absolute inset-0 z-0 h-full w-full object-cover opacity-30"
@@ -1744,7 +1744,7 @@ export function CcCtaSection({
   secondaryCta = { label: "Call Us", href: "tel:8583151247" },
   // Default to an existing project hero photo so the closing CTA never
   // renders against an empty gradient when callers don't pass an image.
-  backgroundImage = "/images/divine-shine/step-results.webp",
+  backgroundImage = "/images/divine-shine/services-5.webp",
 }: CcCtaSectionProps) {
   const sectionStyle: React.CSSProperties = backgroundImage
     ? { backgroundImage: `url(${backgroundImage})` }

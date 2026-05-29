@@ -193,7 +193,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Specialized high-rise window cleaning for commercial buildings, multi-story properties, and post-construction cleanups across Redding and the North State.",
     icon: "high-rise",
-    image: "/images/divine-shine/high-rise.webp",
+    image: "/images/divine-shine/services-5.webp",
     seoTitle: "High-Rise Window Cleaning in Redding | Commercial & Post-Construction",
     seoDescription:
       "Safe, professional high-rise and commercial window cleaning in Redding and Shasta County. Trained, insured crews for tall buildings and post-construction glass.",

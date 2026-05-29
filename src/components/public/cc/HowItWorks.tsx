@@ -13,8 +13,8 @@
  *     uppercase sky-blue title beneath, then a one-liner body in white.
  *   - Static 4-up grid (no carousel) — `grid-cols-1 sm:grid-cols-2
  *     lg:grid-cols-4`. The existing single CTA below the grid stays.
- *   - Photos are sourced from /images/projects/* as placeholders until
- *     Chris swaps with proper step photos.
+ *   - Photos are real Divine Shine job photos (online request form, solar
+ *     panel cleaning, multi-story window cleaning, and a finished-window shot).
  *
  * Sky-blue accent uses `#5BAADC` directly. The codebase's `text-sky`
  * token resolves to `#CAE5F7` (very light), which doesn't read on the
@@ -40,32 +40,33 @@ const STEPS: Step[] = [
     num: "01",
     title: "Get a Free Estimate",
     body: "Tell us about your property — what you want cleaned and anything specific we should know. We get you a clear, up-front price fast.",
-    image: "/images/divine-shine/step-estimate.webp",
+    image: "/images/divine-shine/request-form.webp",
     imageAlt:
-      "Divine Shine team member preparing a free estimate for a Redding home",
+      "Divine Shine online estimate request form shown on a laptop and phone",
   },
   {
     num: "02",
     title: "Pick a Time",
     body: "Choose a time that works for you. We confirm ahead of time and show up on time on the day of service — every time.",
-    image: "/images/divine-shine/step-schedule.webp",
+    image: "/images/divine-shine/solar-panel-cleaning.webp",
     imageAlt:
-      "Divine Shine scheduled service arriving on time at a Redding home",
+      "Divine Shine technician cleaning rooftop solar panels with a soft brush",
   },
   {
     num: "03",
     title: "We Get to Work",
     body: "Our trained, insured crew handles the job start to finish. Eco-friendly products, careful prep, and respect for your property throughout.",
-    image: "/images/divine-shine/step-work.webp",
+    image: "/images/divine-shine/window-cleaning.webp",
     imageAlt:
-      "Divine Shine technician cleaning windows with eco-friendly products",
+      "Divine Shine technician cleaning multi-story windows with a water-fed pole",
   },
   {
     num: "04",
     title: "Spotless Results",
     body: "We walk the job with you before we leave. If anything isn't right, we make it right — that's our satisfaction guarantee.",
-    image: "/images/divine-shine/step-results.webp",
-    imageAlt: "Sparkling clean windows after a Divine Shine service",
+    image: "/images/divine-shine/hero.webp",
+    imageAlt:
+      "Sparkling clean windows reflecting blue sky after a Divine Shine service",
   },
 ];
 

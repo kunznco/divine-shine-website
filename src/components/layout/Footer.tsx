@@ -22,13 +22,18 @@ export function Footer() {
           {/* Brand + social icons */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block">
-              <Image
-                src="/images/divine-shine-logo-white.png"
-                alt="Divine Shine"
-                width={240}
-                height={79}
-                className="h-14 sm:h-16 w-auto opacity-95"
-              />
+              {/* Full-color logo on a white card so it reads on the navy
+                  footer (the wordmark + tagline are multi-color on a
+                  transparent ground). Logo intrinsic 450×197. */}
+              <span className="inline-flex items-center rounded-xl bg-white px-4 py-3 shadow-sm">
+                <Image
+                  src="/images/divine-shine-logo.png"
+                  alt="Divine Shine"
+                  width={450}
+                  height={197}
+                  className="h-12 sm:h-14 w-auto"
+                />
+              </span>
             </Link>
             <p className="mt-5 text-sm text-white/70 leading-relaxed max-w-sm">
               Professional window cleaning, pressure washing, and solar panel

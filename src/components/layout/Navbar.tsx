@@ -138,14 +138,21 @@ export function Navbar() {
               className="flex-shrink-0"
               aria-label="Divine Shine — home"
             >
-              <Image
-                src="/images/divine-shine-logo-white.png"
-                alt="Divine Shine"
-                width={180}
-                height={59}
-                priority
-                className="h-10 sm:h-12 w-auto"
-              />
+              {/* Full-color brand logo on a white chip. The navbar is a
+                  near-transparent frosted-glass capsule over a bright hero
+                  photo, and the logo's wordmark + tagline are multi-color on
+                  transparent — so it needs an opaque white surface to read
+                  consistently as the page scrolls. Logo intrinsic 450×197. */}
+              <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-sm ring-1 ring-black/5">
+                <Image
+                  src="/images/divine-shine-logo.png"
+                  alt="Divine Shine"
+                  width={450}
+                  height={197}
+                  priority
+                  className="h-8 sm:h-10 w-auto"
+                />
+              </span>
             </Link>
 
             {/* Desktop Navigation — right-aligned (dirtymint mirror).

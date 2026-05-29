@@ -13,10 +13,10 @@ export type ServiceArea = {
 const IMG = {
   hero: "/images/divine-shine/hero.webp",
   window: "/images/divine-shine/window-cleaning.webp",
-  highRise: "/images/divine-shine/high-rise.webp",
-  work: "/images/divine-shine/step-work.webp",
-  results: "/images/divine-shine/step-results.webp",
-  estimate: "/images/divine-shine/step-estimate.webp",
+  highRise: "/images/divine-shine/roof-washing.webp",
+  work: "/images/divine-shine/solar-panel-cleaning.webp",
+  results: "/images/divine-shine/house-washing.webp",
+  estimate: "/images/divine-shine/window-cleaning.webp",
 } as const;
 
 /**
