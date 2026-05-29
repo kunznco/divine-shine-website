@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PROMISE_VALUES, STATS } from "@techforthetrades/shared/constants";
 import { CcCtaSection } from "@/components/public/cc/Sections";
 
@@ -27,27 +28,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Story — paired with the owner's family photo so the locally owned,
+          family-run connection is front and center. Photo leads on mobile,
+          sits left of the copy on desktop. */}
       <section className="py-16 sm:py-20 md:py-24 px-5 sm:px-6">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-navy mb-6">
-            Local, reliable, and detail-obsessed
-          </h2>
-          <p className="text-dark-muted leading-relaxed text-base sm:text-lg mb-4">
-            Divine Shine is a locally owned exterior cleaning company serving
-            Redding, Anderson, Red Bluff, and the surrounding North State
-            communities. We specialize in commercial and residential window
-            cleaning and pressure washing — and we&apos;ve built our reputation
-            on showing up on time, working safely, and leaving every surface
-            spotless.
-          </p>
-          <p className="text-dark-muted leading-relaxed text-base sm:text-lg">
-            With a 5.0-star rating across 232+ Google reviews, our customers
-            keep coming back because we treat every property like it&apos;s our
-            own. From a single-story home to a multi-story commercial building,
-            we bring the right equipment, trained technicians, and a
-            satisfaction guarantee to every job.
-          </p>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
+          {/* Owner family photo — portrait shown in full (no crop) inside a
+              rounded frame. Constrained on small screens so the tall portrait
+              doesn't dominate the viewport. */}
+          <figure className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-none">
+            <Image
+              src="/images/divine-shine/owner-family.webp"
+              alt="Nick, the owner of Divine Shine, with his family outdoors in their backyard"
+              width={1070}
+              height={1493}
+              sizes="(min-width: 768px) 42vw, (min-width: 640px) 24rem, 20rem"
+              className="h-auto w-full rounded-3xl shadow-xl ring-1 ring-black/5"
+            />
+            <figcaption className="mt-4 text-center text-sm text-dark-muted">
+              Nick, owner of Divine Shine, with his family.
+            </figcaption>
+          </figure>
+
+          <div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-navy mb-6">
+              Local, reliable, and detail-obsessed
+            </h2>
+            <p className="text-dark-muted leading-relaxed text-base sm:text-lg mb-4">
+              Divine Shine is a locally owned exterior cleaning company serving
+              Redding, Anderson, Red Bluff, and the surrounding North State
+              communities. We specialize in commercial and residential window
+              cleaning and pressure washing — and we&apos;ve built our reputation
+              on showing up on time, working safely, and leaving every surface
+              spotless.
+            </p>
+            <p className="text-dark-muted leading-relaxed text-base sm:text-lg">
+              With a 5.0-star rating across 232+ Google reviews, our customers
+              keep coming back because we treat every property like it&apos;s our
+              own. From a single-story home to a multi-story commercial building,
+              we bring the right equipment, trained technicians, and a
+              satisfaction guarantee to every job.
+            </p>
+          </div>
         </div>
       </section>
 
