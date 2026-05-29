@@ -49,7 +49,7 @@ export default async function HomePage() {
   return (
     <div className="grab-home">
       <CcHomeHero
-        heading="We don't just clean, we shine"
+        heading="We don't just clean. We shine across Redding & Shasta County."
         subheading="Commercial and residential window cleaning and pressure washing across Redding and Shasta County. We show up on time and leave every surface spotless."
         image="/images/divine-shine/hero.webp"
         reviewsLabel={reviewsLabel}

@@ -880,9 +880,13 @@ export function CcHomeHero({
           {/* Oversized headline — capped at 88px at lg+ (Mint's measured
               ceiling). text-shadow gives the headline lift against the
               now-much-lighter overlay (we dropped the dark layer to
-              opacity-10 so the bg photo reads cleanly). */}
+              opacity-10 so the bg photo reads cleanly).
+              Mobile base is text-4xl (36px), not text-5xl: the long
+              geo-keyword H1 wraps to 6 lines at 48px and shoves the CTA
+              below the iPhone SE 667px fold. 36px fits it in 4 lines with
+              the CTA ~90px above the fold. sm:+ keeps the original sizing. */}
           <h1
-            className="grab-hero-headline font-pairing-primary text-5xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-[88px]"
+            className="grab-hero-headline font-pairing-primary text-4xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-[88px]"
             style={{ textShadow: "0 0 30px rgba(0,0,0,0.8)" }}
           >
             {heading}
