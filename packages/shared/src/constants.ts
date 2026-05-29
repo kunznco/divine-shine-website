@@ -54,8 +54,6 @@ export const SERVICE_AREAS = [
   "Shasta Lake, CA",
   "Happy Valley, CA",
   "Bella Vista, CA",
-  "Sacramento, CA",
-  "Bay Area, CA",
 ] as const;
 
 export const STATS = [
