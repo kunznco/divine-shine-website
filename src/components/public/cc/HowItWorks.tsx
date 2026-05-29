@@ -48,25 +48,25 @@ const STEPS: Step[] = [
     num: "02",
     title: "Pick a Time",
     body: "Choose a time that works for you. We confirm ahead of time and show up on time on the day of service — every time.",
-    image: "/images/divine-shine/solar-panel-cleaning.webp",
+    image: "/images/divine-shine/truck-driveway.webp",
     imageAlt:
-      "Divine Shine technician cleaning rooftop solar panels with a soft brush",
+      "A branded Divine Shine truck parked in a customer's driveway, ready for a scheduled service",
   },
   {
     num: "03",
     title: "We Get to Work",
     body: "Our trained, insured crew handles the job start to finish. Eco-friendly products, careful prep, and respect for your property throughout.",
-    image: "/images/divine-shine/window-cleaning.webp",
+    image: "/images/divine-shine/high-rise-pole.webp",
     imageAlt:
-      "Divine Shine technician cleaning multi-story windows with a water-fed pole",
+      "Divine Shine technician cleaning high windows with a water-fed pole, viewed from below",
   },
   {
     num: "04",
     title: "Spotless Results",
     body: "We walk the job with you before we leave. If anything isn't right, we make it right — that's our satisfaction guarantee.",
-    image: "/images/divine-shine/hero.webp",
+    image: "/images/divine-shine/commercial-building.webp",
     imageAlt:
-      "Sparkling clean windows reflecting blue sky after a Divine Shine service",
+      "A freshly cleaned multi-story commercial building with a Divine Shine truck parked out front",
   },
 ];
 

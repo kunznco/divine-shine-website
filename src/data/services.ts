@@ -294,7 +294,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Powerful pressure washing and soft washing for driveways, patios, walkways, pool decks, and hardscaping across Redding and Shasta County.",
     icon: "pressure",
-    image: "/images/divine-shine/pressure-washing.webp",
+    image: "/images/divine-shine/pressure-wash-commercial.webp",
     seoTitle: "Pressure Washing in Redding & Shasta County | Divine Shine",
     seoDescription:
       "Professional pressure washing and soft washing for concrete, pavers, brick, and pool decks in Redding, Anderson, and Red Bluff. Safe, thorough, insured.",
@@ -405,7 +405,7 @@ export const ALL_SERVICES: Service[] = [
     heroDescription:
       "Professional solar panel cleaning that restores energy output and protects your investment. Serving Redding and Shasta County homes and businesses.",
     icon: "solar",
-    image: "/images/divine-shine/solar-panel-cleaning.webp",
+    image: "/images/divine-shine/solar-ladder-worker.webp",
     seoTitle: "Solar Panel Cleaning in Redding | Boost Solar Output | Divine Shine",
     seoDescription:
       "Restore lost solar output with professional panel cleaning in Redding and Shasta County. Purified-water system, safe for your panels, fully insured.",

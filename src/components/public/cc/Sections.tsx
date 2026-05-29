@@ -1744,7 +1744,7 @@ export function CcCtaSection({
   secondaryCta = { label: "Call Us", href: "tel:8583151247" },
   // Default to an existing project hero photo so the closing CTA never
   // renders against an empty gradient when callers don't pass an image.
-  backgroundImage = "/images/divine-shine/services-5.webp",
+  backgroundImage = "/images/divine-shine/trucks-fleet.webp",
 }: CcCtaSectionProps) {
   const sectionStyle: React.CSSProperties = backgroundImage
     ? { backgroundImage: `url(${backgroundImage})` }
