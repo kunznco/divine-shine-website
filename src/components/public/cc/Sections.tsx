@@ -14,6 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import { sanitizeHtml } from "@techforthetrades/shared/sanitize";
+import { PHONE_HREF, PHONE_DISPLAY } from "@techforthetrades/shared/constants";
 import { TestimonialsCarousel } from "./TestimonialsCarousel";
 import { BrandCtaButton } from "@techforthetrades/ui/BrandCtaButton";
 
@@ -791,7 +792,7 @@ export function CcHomeHero({
   reviewsLabel = "5 stars on Google",
   image,
   primaryCta = { label: "Get a fast quote", href: "/contact-us" },
-  secondaryCta = { label: "Call Us", href: "tel:5309003156" },
+  secondaryCta = { label: "Call Us", href: PHONE_HREF },
   sectionId,
 }: CcHomeHeroProps) {
   return (
@@ -803,9 +804,19 @@ export function CcHomeHero({
     <section
       data-section-id={sectionId}
       // Mobile-first height: 640px keeps the CTA above the iPhone SE
-      // 667px fold (audit 2026-05-12). md+ preserves the 876px presence
-      // that frames the hero photo on desktop.
-      className="grab-hero-section relative min-h-[640px] md:min-h-[876px] md:h-[876px] overflow-hidden flex items-center justify-center bg-navy scroll-mt-24 sm:scroll-mt-28"
+      // 667px fold (audit 2026-05-12). md+ uses min-h (was a fixed
+      // h-[876px]) so when the oversized headline makes the content
+      // taller than 876px it grows instead of clipping.
+      //
+      // pt-28 sm:pt-32 (112/128px) is the fixed-navbar safe-area: the
+      // floating nav capsule is ~92px tall on mobile / ~101px at sm+,
+      // so this top padding guarantees the rating row clears it. The
+      // padding lives on the SECTION (not the centered content) so that
+      // even when `items-center` has no slack — i.e. content ≥ section
+      // height, the common case for this hero — the content still
+      // starts below the nav instead of tucking under it (audit
+      // 2026-06-18: the 5-star row was rendering 6px behind the nav).
+      className="grab-hero-section relative min-h-[640px] md:min-h-[876px] overflow-hidden flex items-center justify-center bg-navy pt-28 sm:pt-32 scroll-mt-24 sm:scroll-mt-28"
     >
       {image && (
         // Next/Image generates a responsive srcset so mobile devices get
@@ -835,7 +846,7 @@ export function CcHomeHero({
           oversized headline → subhead → single primary CTA. The
           secondary "Call Us" button was dropped from the hero
           2026-05-11 (sticky bottom bar covers that need). */}
-      <div className="grab-hero-content relative mx-auto w-full max-w-7xl px-5 pt-28 pb-12 sm:px-8 xl:px-12">
+      <div className="grab-hero-content relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-8 xl:px-12">
         <div className="grab-hero-text-container flex max-w-3xl flex-col items-start gap-6 text-left">
           {/* Rating row — wrapped in a single frosted pill so the stars
               + count read as a discrete UI element on busy hero photos.
@@ -1227,7 +1238,10 @@ export function CcServiceAreaHero({
   return (
     <section
       data-section-id={sectionId}
-      className="grab-service-area-hero relative min-h-screen overflow-hidden flex items-center justify-center bg-navy scroll-mt-24 sm:scroll-mt-28"
+      // pt-28 sm:pt-32 is the fixed-navbar safe-area (see CcHomeHero) so
+      // the centered headline never tucks under the floating nav capsule
+      // on short viewports.
+      className="grab-service-area-hero relative min-h-screen overflow-hidden flex items-center justify-center bg-navy pt-28 sm:pt-32 scroll-mt-24 sm:scroll-mt-28"
     >
       {image && (
         <Image
@@ -1242,7 +1256,7 @@ export function CcServiceAreaHero({
       <div className="absolute inset-0 bg-primary opacity-30" />
       <div className="absolute inset-0 bg-derivative-900 opacity-25" />
 
-      <div className="grab-service-area-hero-content relative mx-auto w-full max-w-7xl px-5 pt-28 pb-12 sm:px-8 xl:px-12">
+      <div className="grab-service-area-hero-content relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-8 xl:px-12">
         <div className="flex max-w-3xl flex-col items-start gap-6 text-left">
           {/* H1 — sized smaller than CcHomeHero (start at text-4xl on
               mobile, scale to text-6xl on desktop) since service-area
@@ -1301,7 +1315,7 @@ type CcAreaContactCardProps = {
 };
 
 export function CcAreaContactCard({
-  phone = { label: "(858) 315-1247", href: "tel:8583151247" },
+  phone = { label: PHONE_DISPLAY, href: PHONE_HREF },
   mapEmbedSrc,
 }: CcAreaContactCardProps) {
   return (
@@ -1745,7 +1759,7 @@ export function CcCtaSection({
   heading,
   subheading,
   primaryCta = { label: "Get a fast quote", href: "/contact-us" },
-  secondaryCta = { label: "Call Us", href: "tel:8583151247" },
+  secondaryCta = { label: "Call Us", href: PHONE_HREF },
   // Default to an existing project hero photo so the closing CTA never
   // renders against an empty gradient when callers don't pass an image.
   backgroundImage = "/images/divine-shine/trucks-fleet.webp",
