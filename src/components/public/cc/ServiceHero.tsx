@@ -30,11 +30,15 @@ export function CcServiceHero({
   return (
     <section
       data-section-id={sectionId}
-      // Fixed height: 640px mobile (clears the iPhone SE 667px fold for
-      // CTA visibility) → 700px desktop. Deliberately shorter than the
-      // home hero (876px) so the body content below reaches above the
-      // fold faster on service pages.
-      className="grab-service-hero relative min-h-[640px] md:min-h-[700px] md:h-[700px] overflow-hidden flex items-center justify-center bg-navy scroll-mt-24 sm:scroll-mt-28"
+      // Height: 640px mobile (clears the iPhone SE 667px fold for CTA
+      // visibility) → 700px desktop via min-h (was a fixed h-[700px]) so
+      // a long service name can grow the hero instead of clipping.
+      // Deliberately shorter than the home hero so the body content below
+      // reaches above the fold faster on service pages.
+      //
+      // pt-28 sm:pt-32 is the fixed-navbar safe-area (see CcHomeHero) so
+      // the centered headline always clears the floating nav capsule.
+      className="grab-service-hero relative min-h-[640px] md:min-h-[700px] overflow-hidden flex items-center justify-center bg-navy pt-28 sm:pt-32 scroll-mt-24 sm:scroll-mt-28"
     >
       {image && (
         <Image
@@ -54,7 +58,7 @@ export function CcServiceHero({
       <div className="grab-service-hero-overlay-primary absolute inset-0 bg-primary opacity-0" />
       <div className="grab-service-hero-overlay-dark absolute inset-0 bg-derivative-900 opacity-10" />
 
-      <div className="grab-service-hero-container relative mx-auto w-full max-w-7xl px-5 pt-28 pb-12 sm:px-8 xl:px-12">
+      <div className="grab-service-hero-container relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-8 xl:px-12">
         <div className="grab-service-hero-container-content flex max-w-3xl flex-col items-start gap-6 text-left">
           {/* Headline — capped at text-7xl (96px). Smaller than the
               home hero's 88px ceiling because the service hero is

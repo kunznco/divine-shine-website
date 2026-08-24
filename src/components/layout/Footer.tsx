@@ -15,8 +15,13 @@ import { getFeaturedAreas } from "@/data/service-areas";
  * The full-color Divine Shine logo sits on a white card so it reads on navy.
  */
 export function Footer() {
+  // Bottom padding reserves space for the fixed StickyBottomBar, which
+  // floats bottom-right at every breakpoint (it reaches ~80px up from the
+  // viewport bottom). The desktop value was lg:pb-12 (48px) — too small,
+  // so the bar covered the right end of the "Locally owned…" tagline on
+  // desktop. pb-24 (96px) at every breakpoint clears it (audit 2026-06-18).
   return (
-    <footer className="bg-gradient-to-b from-navy to-navy-dark text-white pb-24 lg:pb-12">
+    <footer className="bg-gradient-to-b from-navy to-navy-dark text-white pb-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-14 sm:pt-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Brand + social icons */}
