@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoscript,
+} from "@/components/analytics/GoogleTagManager";
 
 /**
  * Poppins — the site's primary typeface. One friendly geometric sans used
@@ -73,7 +77,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${balney.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased">{children}</body>
+      <head>
+        {/* GTM is the only tag loaded from code; the Meta Pixel and GA4 tags
+            live inside the container. See src/data/tracking.ts. */}
+        <GoogleTagManager />
+      </head>
+      <body className="min-h-screen flex flex-col antialiased">
+        <GoogleTagManagerNoscript />
+        {children}
+      </body>
     </html>
   );
 }
