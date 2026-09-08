@@ -7,7 +7,7 @@
     "containerId": "0",
     "containerVersionId": "0",
     "name": "Divine Shine conversion tracking",
-    "description": "GA4 + Meta Pixel for divine-shine.com with three conversions: tel: click, sms: click, mailto: click. Import into the Divine Shine container (Admin > Import Container > Merge). The Meta Pixel ID is prefilled; after import, fill in Const - GA4 Measurement ID.",
+    "description": "GA4 + Meta Pixel for divine-shine.com with three conversions: tel: click, sms: click, mailto: click. Import into the Divine Shine container (Admin > Import Container > Merge). The Meta Pixel ID is prefilled; after import, fill in Const - GA4 Measurement ID. Every trigger is filtered to Page Hostname ends with divine-shine.com, so previews and localhost never fire tags.",
     "container": {
       "path": "accounts/0/containers/0",
       "accountId": "0",
@@ -111,6 +111,21 @@
                 "value": "tel:"
               }
             ]
+          },
+          {
+            "type": "ENDS_WITH",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "divine-shine.com"
+              }
+            ]
           }
         ],
         "autoEventFilter": [
@@ -152,7 +167,7 @@
         "triggerId": "2",
         "name": "Text click",
         "type": "LINK_CLICK",
-        "notes": "Any sms: link (the sticky mobile bar).",
+        "notes": "Any sms: link: the sticky bar and the contact page.",
         "filter": [
           {
             "type": "STARTS_WITH",
@@ -166,6 +181,21 @@
                 "type": "TEMPLATE",
                 "key": "arg1",
                 "value": "sms:"
+              }
+            ]
+          },
+          {
+            "type": "ENDS_WITH",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "divine-shine.com"
               }
             ]
           }
@@ -225,6 +255,21 @@
                 "value": "mailto:"
               }
             ]
+          },
+          {
+            "type": "ENDS_WITH",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "divine-shine.com"
+              }
+            ]
           }
         ],
         "autoEventFilter": [
@@ -259,6 +304,56 @@
         "uniqueTriggerId": {
           "type": "TEMPLATE"
         }
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "5",
+        "name": "Production - Initialization",
+        "type": "INIT",
+        "notes": "Production only. Vercel previews (*.vercel.app) and localhost never fire, so review clicks and preview loads do not pollute the client data.",
+        "filter": [
+          {
+            "type": "ENDS_WITH",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "divine-shine.com"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "6",
+        "name": "Production - All Pages",
+        "type": "PAGEVIEW",
+        "notes": "Production only. Vercel previews (*.vercel.app) and localhost never fire, so review clicks and preview loads do not pollute the client data.",
+        "filter": [
+          {
+            "type": "ENDS_WITH",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "divine-shine.com"
+              }
+            ]
+          }
+        ]
       }
     ],
     "tag": [
@@ -277,7 +372,7 @@
           }
         ],
         "firingTriggerId": [
-          "2147479573"
+          "5"
         ],
         "tagFiringOption": "ONCE_PER_EVENT"
       },
@@ -403,7 +498,7 @@
           "value": "10"
         },
         "firingTriggerId": [
-          "2147479553"
+          "6"
         ],
         "tagFiringOption": "ONCE_PER_EVENT"
       },

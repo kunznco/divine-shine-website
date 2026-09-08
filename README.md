@@ -26,7 +26,7 @@ The Meta Pixel and Google Analytics 4 are tags inside the GTM container. `tracki
 - Meta Pixel base tag on all pages, plus Contact events on call, text, and email clicks
 - GA4 Google tag on all pages, plus `phone_call`, `sms_click`, and `email_click` events
 
-After import, set the `Const - GA4 Measurement ID` variable to the GA4 stream's ID. The Meta Pixel ID is prefilled.
+After import, set the `Const - GA4 Measurement ID` variable to the GA4 stream's ID. The Meta Pixel ID is prefilled. Every trigger is limited to the `divine-shine.com` hostname, so Vercel previews and localhost never send data to Meta or GA4.
 
 ## Deploy
 
